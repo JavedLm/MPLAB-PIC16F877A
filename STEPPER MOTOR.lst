@@ -1,0 +1,363 @@
+
+
+HI-TECH Software PIC LITE Macro Assembler V9.81 build 7503 
+                                                                                               Wed Apr 17 12:57:53 2019
+
+HI-TECH Software Omniscient Code Generator (Lite mode) build 7503
+     1  0000                     opt subtitle "HI-TECH Software Omniscient Code Generator (Lite mode) build 7503"
+     2                           
+     3                           opt pagewidth 120
+     4                           
+     5                           	opt lm
+     6                           
+     7                           	processor	16F877A
+     8                           clrc	macro
+     9                           	bcf	3,0
+    10  0000                     	endm
+    11                           clrz	macro
+    12                           	bcf	3,2
+    13  0000                     	endm
+    14                           setc	macro
+    15                           	bsf	3,0
+    16  0000                     	endm
+    17                           setz	macro
+    18                           	bsf	3,2
+    19  0000                     	endm
+    20                           skipc	macro
+    21                           	btfss	3,0
+    22  0000                     	endm
+    23                           skipz	macro
+    24                           	btfss	3,2
+    25  0000                     	endm
+    26                           skipnc	macro
+    27                           	btfsc	3,0
+    28  0000                     	endm
+    29                           skipnz	macro
+    30                           	btfsc	3,2
+    31  0000                     	endm
+    32  0000                     indf	equ	0
+    33  0000                     indf0	equ	0
+    34  0002                     pc	equ	2
+    35  0002                     pcl	equ	2
+    36  0003                     status	equ	3
+    37  0004                     fsr	equ	4
+    38  0004                     fsr0	equ	4
+    39  0001                     c	equ	1
+    40  0000                     z	equ	0
+    41  000A                     pclath	equ	10
+    42                           	FNROOT	_main
+    43                           	global	_PORTB
+    44                           psect	maintext,global,class=CODE,delta=2
+    45                           global __pmaintext
+    46  07B7                     __pmaintext:
+    47  0006                     _PORTB	set	6
+    48                           	global	_TRISB
+    49  0086                     _TRISB	set	134
+    50                           	file	"STEPPER MOTOR.as"
+    51                           	line	#
+    52                           psect cinit,class=CODE,delta=2
+    53                           global start_initialization
+    54  07B3                     start_initialization:
+    55                           
+    56                           psect cinit,class=CODE,delta=2
+    57                           global end_of_initialization
+    58                           
+    59                           ;End of C runtime variable initialization code
+    60                           
+    61  07B3                     end_of_initialization:
+    62  07B3  0183               clrf status
+    63  07B4  120A  118A  2FB7   ljmp _main	;jump to C main() function
+    64                           psect	cstackCOMMON,class=COMMON,space=1
+    65                           global __pcstackCOMMON
+    66  0070                     __pcstackCOMMON:
+    67                           	global	?_main
+    68  0070                     ?_main:	; 0 bytes @ 0x0
+    69                           	global	??_main
+    70  0070                     ??_main:	; 0 bytes @ 0x0
+    71  0070                     	ds	3
+    72 ;;Data sizes: Strings 0, constant 0, data 0, bss 0, persistent 0 stack 0
+    73 ;;Auto spaces:   Size  Autos    Used
+    74 ;; COMMON          14      3       3
+    75 ;; BANK0           80      0       0
+    76 ;; BANK1           80      0       0
+    77 ;; BANK3           96      0       0
+    78 ;; BANK2           96      0       0
+    79                           
+    80 ;;
+    81 ;; Pointer list with targets:
+    82                           
+    83                           
+    84                           
+    85 ;;
+    86 ;; Critical Paths under _main in COMMON
+    87 ;;
+    88 ;;   None.
+    89 ;;
+    90 ;; Critical Paths under _main in BANK0
+    91 ;;
+    92 ;;   None.
+    93 ;;
+    94 ;; Critical Paths under _main in BANK1
+    95 ;;
+    96 ;;   None.
+    97 ;;
+    98 ;; Critical Paths under _main in BANK3
+    99 ;;
+   100 ;;   None.
+   101 ;;
+   102 ;; Critical Paths under _main in BANK2
+   103 ;;
+   104 ;;   None.
+   105                           
+   106 ;;
+   107 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
+   108 ;;
+   109                           
+   110 ;;
+   111 ;;Call Graph Tables:
+   112 ;;
+   113 ;; ---------------------------------------------------------------------------------
+   114 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   115 ;; ---------------------------------------------------------------------------------
+   116 ;; (0) _main                                                 3     3      0       0
+   117 ;;                                              0 COMMON     3     3      0
+   118 ;; ---------------------------------------------------------------------------------
+   119 ;; Estimated maximum stack depth 0
+   120 ;; ---------------------------------------------------------------------------------
+   121                           
+   122 ;; Call Graph Graphs:
+   123                           
+   124 ;; _main (ROOT)
+   125 ;;
+   126                           
+   127 ;; Address spaces:
+   128                           
+   129 ;;Name               Size   Autos  Total    Cost      Usage
+   130 ;;BITCOMMON            E      0       0       0        0.0%
+   131 ;;EEDATA             100      0       0       0        0.0%
+   132 ;;NULL                 0      0       0       0        0.0%
+   133 ;;CODE                 0      0       0       0        0.0%
+   134 ;;COMMON               E      3       3       1       21.4%
+   135 ;;BITSFR0              0      0       0       1        0.0%
+   136 ;;SFR0                 0      0       0       1        0.0%
+   137 ;;BITSFR1              0      0       0       2        0.0%
+   138 ;;SFR1                 0      0       0       2        0.0%
+   139 ;;STACK                0      0       0       2        0.0%
+   140 ;;ABS                  0      0       0       3        0.0%
+   141 ;;BITBANK0            50      0       0       4        0.0%
+   142 ;;BITSFR3              0      0       0       4        0.0%
+   143 ;;SFR3                 0      0       0       4        0.0%
+   144 ;;BANK0               50      0       0       5        0.0%
+   145 ;;BITSFR2              0      0       0       5        0.0%
+   146 ;;SFR2                 0      0       0       5        0.0%
+   147 ;;BITBANK1            50      0       0       6        0.0%
+   148 ;;BANK1               50      0       0       7        0.0%
+   149 ;;BITBANK3            60      0       0       8        0.0%
+   150 ;;BANK3               60      0       0       9        0.0%
+   151 ;;BITBANK2            60      0       0      10        0.0%
+   152 ;;BANK2               60      0       0      11        0.0%
+   153 ;;DATA                 0      0       0      12        0.0%
+   154                           
+   155                           	global	_main
+   156                           psect	maintext
+   157                           
+   158 ;; *************** function _main *****************
+   159 ;; Defined at:
+   160 ;;		line 5 in file "C:\Users\Javed\Documents\MPLAB PIC16F877A PROGRAMS\STEPPERMOTOR.c"
+   161 ;; Parameters:    Size  Location     Type
+   162 ;;		None
+   163 ;; Auto vars:     Size  Location     Type
+   164 ;;		None
+   165 ;; Return value:  Size  Location     Type
+   166 ;;		None               void
+   167 ;; Registers used:
+   168 ;;		wreg, status,2
+   169 ;; Tracked objects:
+   170 ;;		On entry : 17F/0
+   171 ;;		On exit  : 0/0
+   172 ;;		Unchanged: 0/0
+   173 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   174 ;;      Params:         0       0       0       0       0
+   175 ;;      Locals:         0       0       0       0       0
+   176 ;;      Temps:          3       0       0       0       0
+   177 ;;      Totals:         3       0       0       0       0
+   178 ;;Total ram usage:        3 bytes
+   179 ;; This function calls:
+   180 ;;		Nothing
+   181 ;; This function is called by:
+   182 ;;		Startup code after reset
+   183 ;; This function uses a non-reentrant model
+   184 ;;
+   185                           psect	maintext
+   186                           	file	"C:\Users\Javed\Documents\MPLAB PIC16F877A PROGRAMS\STEPPERMOTOR.c"
+   187                           	line	5
+   188                           	global	__size_of_main
+   189  0049                     	__size_of_main	equ	__end_of_main-_main
+   190                           	
+   191  07B7                     _main:	
+   192                           	opt	stack 8
+   193                           ; Regs used in _main: [wreg+status,2]
+   194                           	line	6
+   195                           	
+   196  07B7                     l1825:	
+   197                           ;STEPPERMOTOR.c: 6: TRISB=0x00;
+   198  07B7  1683               	bsf	status, 5	;RP0=1, select bank1
+   199  07B8  1303               	bcf	status, 6	;RP1=0, select bank1
+   200  07B9  0186               	clrf	(134)^080h	;volatile
+   201  07BA  2FBB               	goto	l1827
+   202                           	line	7
+   203                           ;STEPPERMOTOR.c: 7: while(1)
+   204                           	
+   205  07BB                     l687:	
+   206                           	line	9
+   207                           	
+   208  07BB                     l1827:	
+   209                           ;STEPPERMOTOR.c: 8: {
+   210                           ;STEPPERMOTOR.c: 9: PORTB=0x0E;
+   211  07BB  300E               	movlw	(0Eh)
+   212  07BC  1283               	bcf	status, 5	;RP0=0, select bank0
+   213  07BD  1303               	bcf	status, 6	;RP1=0, select bank0
+   214  07BE  0086               	movwf	(6)	;volatile
+   215                           	line	10
+   216                           	
+   217  07BF                     l1829:	
+   218                           ;STEPPERMOTOR.c: 10: _delay((unsigned long)((1000)*(2000000/4000.0)));
+   219                           	opt asmopt_off
+   220  07BF  3003               movlw  3
+   221  07C0  00F2               movwf	((??_main+0)+0+2),f
+   222  07C1  3088               movlw	136
+   223  07C2  00F1               movwf	((??_main+0)+0+1),f
+   224  07C3  3056               	movlw	86
+   225  07C4  00F0               movwf	((??_main+0)+0),f
+   226  07C5                     u2147:
+   227  07C5  0BF0               	decfsz	((??_main+0)+0),f
+   228  07C6  2FC5               	goto	u2147
+   229  07C7  0BF1               	decfsz	((??_main+0)+0+1),f
+   230  07C8  2FC5               	goto	u2147
+   231  07C9  0BF2               	decfsz	((??_main+0)+0+2),f
+   232  07CA  2FC5               	goto	u2147
+   233                           opt asmopt_on
+   234                           
+   235                           	line	11
+   236                           	
+   237  07CB                     l1831:	
+   238                           ;STEPPERMOTOR.c: 11: PORTB=0x0B;
+   239  07CB  300B               	movlw	(0Bh)
+   240  07CC  1283               	bcf	status, 5	;RP0=0, select bank0
+   241  07CD  1303               	bcf	status, 6	;RP1=0, select bank0
+   242  07CE  0086               	movwf	(6)	;volatile
+   243                           	line	12
+   244                           	
+   245  07CF                     l1833:	
+   246                           ;STEPPERMOTOR.c: 12: _delay((unsigned long)((1000)*(2000000/4000.0)));
+   247                           	opt asmopt_off
+   248  07CF  3003               movlw  3
+   249  07D0  00F2               movwf	((??_main+0)+0+2),f
+   250  07D1  3088               movlw	136
+   251  07D2  00F1               movwf	((??_main+0)+0+1),f
+   252  07D3  3056               	movlw	86
+   253  07D4  00F0               movwf	((??_main+0)+0),f
+   254  07D5                     u2157:
+   255  07D5  0BF0               	decfsz	((??_main+0)+0),f
+   256  07D6  2FD5               	goto	u2157
+   257  07D7  0BF1               	decfsz	((??_main+0)+0+1),f
+   258  07D8  2FD5               	goto	u2157
+   259  07D9  0BF2               	decfsz	((??_main+0)+0+2),f
+   260  07DA  2FD5               	goto	u2157
+   261                           opt asmopt_on
+   262                           
+   263                           	line	13
+   264                           	
+   265  07DB                     l1835:	
+   266                           ;STEPPERMOTOR.c: 13: PORTB=0x0D;
+   267  07DB  300D               	movlw	(0Dh)
+   268  07DC  1283               	bcf	status, 5	;RP0=0, select bank0
+   269  07DD  1303               	bcf	status, 6	;RP1=0, select bank0
+   270  07DE  0086               	movwf	(6)	;volatile
+   271                           	line	14
+   272                           	
+   273  07DF                     l1837:	
+   274                           ;STEPPERMOTOR.c: 14: _delay((unsigned long)((1000)*(2000000/4000.0)));
+   275                           	opt asmopt_off
+   276  07DF  3003               movlw  3
+   277  07E0  00F2               movwf	((??_main+0)+0+2),f
+   278  07E1  3088               movlw	136
+   279  07E2  00F1               movwf	((??_main+0)+0+1),f
+   280  07E3  3056               	movlw	86
+   281  07E4  00F0               movwf	((??_main+0)+0),f
+   282  07E5                     u2167:
+   283  07E5  0BF0               	decfsz	((??_main+0)+0),f
+   284  07E6  2FE5               	goto	u2167
+   285  07E7  0BF1               	decfsz	((??_main+0)+0+1),f
+   286  07E8  2FE5               	goto	u2167
+   287  07E9  0BF2               	decfsz	((??_main+0)+0+2),f
+   288  07EA  2FE5               	goto	u2167
+   289                           opt asmopt_on
+   290                           
+   291                           	line	15
+   292                           	
+   293  07EB                     l1839:	
+   294                           ;STEPPERMOTOR.c: 15: PORTB=0x07;
+   295  07EB  3007               	movlw	(07h)
+   296  07EC  1283               	bcf	status, 5	;RP0=0, select bank0
+   297  07ED  1303               	bcf	status, 6	;RP1=0, select bank0
+   298  07EE  0086               	movwf	(6)	;volatile
+   299                           	line	16
+   300                           	
+   301  07EF                     l1841:	
+   302                           ;STEPPERMOTOR.c: 16: _delay((unsigned long)((1000)*(2000000/4000.0)));
+   303                           	opt asmopt_off
+   304  07EF  3003               movlw  3
+   305  07F0  00F2               movwf	((??_main+0)+0+2),f
+   306  07F1  3088               movlw	136
+   307  07F2  00F1               movwf	((??_main+0)+0+1),f
+   308  07F3  3056               	movlw	86
+   309  07F4  00F0               movwf	((??_main+0)+0),f
+   310  07F5                     u2177:
+   311  07F5  0BF0               	decfsz	((??_main+0)+0),f
+   312  07F6  2FF5               	goto	u2177
+   313  07F7  0BF1               	decfsz	((??_main+0)+0+1),f
+   314  07F8  2FF5               	goto	u2177
+   315  07F9  0BF2               	decfsz	((??_main+0)+0+2),f
+   316  07FA  2FF5               	goto	u2177
+   317                           opt asmopt_on
+   318                           
+   319  07FB  2FBB               	goto	l1827
+   320                           	line	17
+   321                           	
+   322  07FC                     l688:	
+   323                           	line	7
+   324  07FC  2FBB               	goto	l1827
+   325                           	
+   326  07FD                     l689:	
+   327                           	line	18
+   328                           	
+   329  07FD                     l690:	
+   330                           	global	start
+   331  07FD  120A  118A  2800   	ljmp	start
+   332                           	opt stack 0
+   333                           GLOBAL	__end_of_main
+   334  0800                     	__end_of_main:
+   335 ;; =============== function _main ends ============
+   336                           
+   337                           	signat	_main,88
+   338                           psect	maintext
+   339                           	global	btemp
+   340  007E                     	btemp set 07Eh
+   341                           
+   342                           	DABS	1,126,2	;btemp
+   343                           	global	wtemp0
+   344  007E                     	wtemp0 set btemp
+
+
+HI-TECH Software PICC Macro Assembler V9.81 build 7503 
+Symbol Table                                                                                   Wed Apr 17 12:57:53 2019
+
+                 l690 07FD                   l687 07BB                   l688 07FC                   l689 07FD  
+                l1831 07CB                  l1841 07EF                  l1833 07CF                  l1825 07B7  
+                l1835 07DB                  l1827 07BB                  l1837 07DF                  l1829 07BF  
+                l1839 07EB                  u2147 07C5                  u2157 07D5                  u2167 07E5  
+                u2177 07F5                  _main 07B7                  btemp 007E                  start 0000  
+               ?_main 0070                 _PORTB 0006                 _TRISB 0086                 status 0003  
+               wtemp0 007E          __end_of_main 0800                ??_main 0070        __pcstackCOMMON 0070  
+          __pmaintext 07B7  end_of_initialization 07B3   start_initialization 07B3         __size_of_main 0049  
